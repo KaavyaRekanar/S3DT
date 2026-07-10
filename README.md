@@ -1,10 +1,10 @@
-# Semantic Security for Software Digital Threads (S³DT)
+# Secure Semantic Soundness for Digital Threads (S³DT)
 
 This repository accompanies the paper:
 
-**Semantic Security for Software Digital Threads**
+**Semantic Integrity: A Lifecycle Security Property for Software Digital Threads**
 
-It contains the reference implementation and empirical evaluation of the **S³DT (Semantic Security for Software Digital Threads)** framework for detecting semantic drift across software lifecycle artifacts using Security Integrity Constraints (SICs) and hybrid neuro-symbolic reasoning.
+It contains the reference implementation and empirical evaluation of the **S³DT (Secure Semantic Soundness for Digital Threads)** framework for detecting semantic drift across software lifecycle artifacts using Security Integrity Constraints (SICs) and hybrid neuro-symbolic reasoning.
 
 ---
 
