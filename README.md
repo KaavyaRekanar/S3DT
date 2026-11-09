@@ -1,157 +1,114 @@
 # Secure Semantic Soundness for Digital Threads (S³DT)
 
-This repository accompanies the paper:
+This repository accompanies the manuscript:
 
 **Semantic Integrity: A Lifecycle Security Property for Software Digital Threads**
 
-It contains the reference implementation and empirical evaluation of the **S³DT (Secure Semantic Soundness for Digital Threads)** framework for detecting semantic drift across software lifecycle artifacts using Security Integrity Constraints (SICs) and hybrid neuro-symbolic reasoning.
+**Authors:** Kaavya Rekanar and Donna O'Shea  
+**Journal:** *IEEE Transactions on Dependable and Secure Computing* (revised manuscript)
+
+It provides the reference implementation, case-study materials, evaluation datasets, and experimental notebooks for **S³DT (Secure Semantic Soundness for Digital Threads)**, a framework for assessing semantic integrity across software lifecycle artifacts using **Security Integrity Constraints (SICs)** and structured, embedding-based, and hybrid reasoning.
+
+The repository includes three case studies and additional validation experiments introduced during manuscript revision. These examine both reconstructed security incidents and authentic historical software development activity.
 
 ---
 
 ## Repository Overview
 
-The repository is organised into two main components:
+The materials are organised primarily into:
 
-```
-case_studies/
-evaluation/
-```
+- **`case_studies/`** — implementations and associated materials for the two reconstructed incidents and the historical Django study.
+- **`Evaluation/`** — transition-level evaluation datasets, evaluation notebooks, and additional validation experiments.
 
-The case study notebooks implement the complete S³DT workflow, including semantic projection, semantic digital thread construction, Security Integrity Constraint evaluation, and hybrid semantic assessment.
+The experiments address six complementary questions:
 
-The evaluation notebook reproduces the empirical evaluation reported in the paper using the transition-level datasets generated from both case studies.
+1. Can SICs identify security-relevant semantic inconsistencies across software lifecycle transitions?
+2. Can the framework repeatedly assess security constraints across historical source-code revisions?
+3. How accurately are source artifacts projected into semantic claims?
+4. How do projection errors affect downstream SIC decisions?
+5. What trade-offs arise between structured-only, embedding-only, and hybrid reasoning?
+6. What preliminary execution-time overhead is observed for the evaluated workload?
+
+The original **47-transition evaluation** comprises the two reconstructed incident studies. The Django study uses a separate **15-checkpoint × 4-SIC** evaluation design, producing 60 assessments.
 
 ---
 
 ## Repository Structure
 
-```
+```text
 S3DT/
-│
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
-│
 ├── case_studies/
 │   ├── AI_Orchestrated_Cyber_Espionage.ipynb
-│   └── Capital_One_Cloud_Configuration_Drift.ipynb
-│
-├── evaluation/
-│   ├── Empirical_Evaluation.ipynb
-│   ├── evaluation_anthropic.csv
-│   ├── capitalone_transition_dataset.csv
-│   └── combined_transition_evaluation_labelled.csv
+│   ├── Capital_One_Cloud_Configuration_Drift.ipynb
+│   └── [Django historical-revision case-study materials]
+└── Evaluation/
+    ├── Empirical_Evaluation.ipynb
+    ├── evaluation_anthropic.csv
+    ├── capitalone_transition_dataset.csv
+    ├── combined_transition_evaluation_labelled.csv
+    └── [Additional validation and ablation materials]
 ```
+
+*Square-bracketed entries are descriptive placeholders rather than literal filenames. The exact paths of newly uploaded notebooks and datasets should be inserted after verification.*
 
 ---
 
 ## Case Studies
 
-### AI-Orchestrated Cyber-Espionage
+### Case Study I — AI-Orchestrated Cyber-Espionage
 
-This notebook demonstrates the complete application of S³DT to an AI-orchestrated cyber-espionage campaign reconstructed from publicly available reports.
+**Notebook:** `case_studies/AI_Orchestrated_Cyber_Espionage.ipynb`
 
-The notebook implements:
+This study reconstructs an AI-orchestrated cyber-espionage incident from publicly reported evidence and applies S³DT to its security-relevant lifecycle transitions.
 
-- semantic claim extraction;
-- semantic digital thread construction;
-- semantic delta generation;
-- Security Integrity Constraint (SIC) evaluation;
-- hybrid semantic drift assessment; and
-- explainable security decision generation.
+The notebook demonstrates:
 
----
+- Semantic claim extraction and projection from available artifacts.
+- Construction of a semantic digital thread.
+- Semantic delta generation and transition-level comparisons.
+- SIC evaluation and explainable integrity decisions.
+- Structured, embedding-based, and hybrid semantic assessment.
 
-### Capital One Cloud Configuration Drift
+The case contributes **28 transitions** to the combined transition-level evaluation dataset.
 
-This notebook applies S³DT to the Capital One cloud breach, illustrating how semantic inconsistencies propagate from security intent through cloud configuration and deployment into runtime behaviour.
+### Case Study II — Capital One Cloud Configuration Drift
 
-The notebook follows the same three-stage workflow as the AI case study, enabling direct comparison between the two scenarios.
+**Notebook:** `case_studies/Capital_One_Cloud_Configuration_Drift.ipynb`
 
----
+This reconstructed incident study examines how security-relevant semantic inconsistencies propagate across security intent, cloud configuration, deployment, and runtime behaviour.
 
-## Empirical Evaluation
+The notebook applies the same three-stage S³DT workflow as Case Study I, enabling comparison between the two scenarios.
 
-The evaluation notebook reproduces all empirical results presented in the paper.
+The case contributes **19 transitions** to the combined transition-level evaluation dataset.
 
-Using the transition-level datasets generated from both case studies, it computes:
+### Case Study III — Django Historical Software Evolution
 
-- classification accuracy;
-- precision, recall, and F1-score;
-- confusion matrices;
-- early semantic drift detection results; and
-- framework characteristic metrics.
+**Location:** Django case-study materials under `case_studies/`
 
-All reported tables and quantitative results can be reproduced directly by executing the notebook.
+The third case study extends the empirical evaluation beyond reconstructed incident artifacts by examining authentic historical Django source-code revisions associated with documented security vulnerabilities, their remediation, and subsequent development activity.
 
----
+The study considers four documented security issues:
 
-## Transition-Level Evaluation Datasets
+- Django ticket **#30289**
+- **CVE-2019-12308**
+- **CVE-2021-31542**
+- **CVE-2021-33203**
 
-The repository contains the transition datasets used for empirical evaluation.
+Across **15 historical checkpoints**, the same four system-level SICs are assessed at each checkpoint, producing **60 SIC–checkpoint assessments**.
 
-| Dataset | Description |
-|---------|-------------|
-| `evaluation_anthropic.csv` | Transition-level dataset generated from the AI-Orchestrated Cyber-Espionage case study |
-| `capitalone_transition_dataset.csv` | Transition-level dataset generated from the Capital One case study |
-| `combined_transition_evaluation_labelled.csv` | Combined dataset containing all 47 semantic lifecycle transitions used throughout the empirical evaluation |
+The evaluation uses relevance-based artifact selection and SIC-scoped claim reasoning to focus on security-relevant evidence and examine how integrity assessments evolve across development history.
+
+This is a retrospective evaluation. It does not establish automated continuous monitoring, repository-wide scalability, or robustness against increasing volumes of unrelated artifacts.
 
 ---
 
-## Software Requirements
+## Experimental Evaluation
 
-The implementation is written in Python and was developed using Jupyter Notebooks.
+### 1. Transition-Level Classification and Reasoning Comparison
 
-Required packages include:
+**Notebook:** `Evaluation/Empirical_Evaluation.ipynb`
 
-- networkx
-- pandas
-- numpy
-- matplotlib
-- sentence-transformers
-- pydantic
-- scikit-learn
-
-Dependencies can be installed using
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## Reproducing the Results
-
-1. Install the required dependencies.
-2. Execute both case study notebooks to reproduce the semantic digital threads and candidate drift events.
-3. Run `Empirical_Evaluation.ipynb`.
-4. Load the transition datasets when prompted.
-5. The notebook reproduces all evaluation results reported in the paper.
-
----
-
-## Repository–Paper Mapping
-
-| Paper | Repository |
-|------|------------|
-| Case Study I | `case_studies/AI_Orchestrated_Cyber_Espionage.ipynb` |
-| Case Study II | `case_studies/Capital_One_Cloud_Configuration_Drift.ipynb` |
-| Section VI: Empirical Evaluation | `evaluation/Empirical_Evaluation.ipynb` |
-| Transition-level datasets | `evaluation/*.csv` |
-
----
-
-## Citation
-
-If you use this repository, please cite:
-
-> K. Rekanar and D. O'Shea,
-> *Semantic Security for Software Digital Threads*,
-
----
-
-## License
-
-This project is released under the **MIT License**.
-
-See the `LICENSE` file for details.
+The two reconstructed case studies contribute **47 labelled transitions** in
