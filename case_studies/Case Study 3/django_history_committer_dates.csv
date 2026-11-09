@@ -1,0 +1,16 @@
+Security history,Git revision,Full Git SHA,Commit date (UTC),Commit timestamp (UTC),Role,Source component,GitHub URL
+Ticket #30289,e245046b,e245046bb6e8b32360aa48b8a41fb7050f0fc730,2019-03-30,2019-03-30T16:55:30Z,Vulnerable,Admin permission checks,https://github.com/django/django/commit/e245046bb6e8b32360aa48b8a41fb7050f0fc730
+,8335d592,8335d59200e4c64dfe3348ea93989d95e0107439,2019-03-30,2019-03-30T20:49:16Z,Corrected,,https://github.com/django/django/commit/8335d59200e4c64dfe3348ea93989d95e0107439
+,0027ca76,0027ca76c7d1b4eba1578bf3d132b8c0ff87f829,2019-04-01,2019-04-01T08:46:28Z,Post-fix 1,,https://github.com/django/django/commit/0027ca76c7d1b4eba1578bf3d132b8c0ff87f829
+,f9f09a8a,f9f09a8a0259e75a5009ce04e662a5a759f8a12f,2019-04-01,2019-04-01T10:04:08Z,Post-fix 2,,https://github.com/django/django/commit/f9f09a8a0259e75a5009ce04e662a5a759f8a12f
+,7191beec,7191beec4e2140bf2d6ff7e6ad2e1c25913c9c48,2019-04-01,2019-04-01T10:11:50Z,Post-fix 3,,https://github.com/django/django/commit/7191beec4e2140bf2d6ff7e6ad2e1c25913c9c48
+,3d465f77,3d465f77e5ca382a4db99ed4ec44b1941cb60aff,2019-04-01,2019-04-01T10:21:52Z,Post-fix 4,,https://github.com/django/django/commit/3d465f77e5ca382a4db99ed4ec44b1941cb60aff
+,3e01aab5,3e01aab5335394201701710d7fcd67f523878c5b,2019-04-01,2019-04-01T10:22:15Z,Post-fix 5,,https://github.com/django/django/commit/3e01aab5335394201701710d7fcd67f523878c5b
+,93daed25,93daed25a41b5cf2f7804d91630caa1cd0786a9a,2019-04-01,2019-04-01T13:00:40Z,Post-fix 6,,https://github.com/django/django/commit/93daed25a41b5cf2f7804d91630caa1cd0786a9a
+,7cbcf2e2,7cbcf2e2cbca1acfccfd973f746a9e6abfc0052e,2019-04-01,2019-04-01T13:11:54Z,Post-fix 7,,https://github.com/django/django/commit/7cbcf2e2cbca1acfccfd973f746a9e6abfc0052e
+CVE-2019-12308,98c0fe19,98c0fe19ee2cba9726708ac9336e1dc0d43cca69,2019-06-03,2019-06-03T08:48:52Z,Vulnerable,Admin URL rendering,https://github.com/django/django/commit/98c0fe19ee2cba9726708ac9336e1dc0d43cca69
+,deeba6d9,deeba6d92006999fee9adfbd8be79bf0a59e8008,2019-06-03,2019-06-03T09:36:12Z,Corrected,,https://github.com/django/django/commit/deeba6d92006999fee9adfbd8be79bf0a59e8008
+CVE-2021-31542,8de4ca74,8de4ca74ba49b3f97a252e2b9d385cb2e70c442c,2021-05-04,2021-05-04T05:36:56Z,Vulnerable,Uploaded-file and storage paths,https://github.com/django/django/commit/8de4ca74ba49b3f97a252e2b9d385cb2e70c442c
+,0b79eb36,0b79eb36915d178aef5c6a7bbce71b1e76d376d3,2021-05-04,2021-05-04T06:44:42Z,Corrected,,https://github.com/django/django/commit/0b79eb36915d178aef5c6a7bbce71b1e76d376d3
+CVE-2021-33203,f66ae7a2,f66ae7a2d5558fe88ddfe639a610573872be6628,2021-06-02,2021-06-02T08:19:19Z,Vulnerable,Admin documentation path handling,https://github.com/django/django/commit/f66ae7a2d5558fe88ddfe639a610573872be6628
+,46572de2,46572de2e92fdeaf047f80c44d52269e54ad68db,2021-06-02,2021-06-02T08:58:39Z,Corrected,,https://github.com/django/django/commit/46572de2e92fdeaf047f80c44d52269e54ad68db
